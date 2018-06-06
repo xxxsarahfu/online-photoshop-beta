@@ -36,8 +36,9 @@ h3margin-left: 15px;
 .fileInput {
   border-bottom: 4px solid lightgray;
   border-right: 4px solid lightgray;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border-top: 1px solid rgb(44, 40, 40);
+  border-left: 1px solid rgb(44, 40, 40);
+  border-radius: 35px;
   padding: 10px;
   margin: 15px;
   cursor: pointer;
@@ -86,4 +87,7 @@ img {
 .imgPreview {
   background-color: bisque;
   display: block;
+}
+.body {
+  background-color: bisque;
 }
