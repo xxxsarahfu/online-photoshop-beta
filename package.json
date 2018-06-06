@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:5000/",
   "dependencies": {
+    "axios": "^0.18.0",
     "base64-img": "^1.0.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",

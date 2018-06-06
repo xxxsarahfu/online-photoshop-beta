@@ -17,8 +17,10 @@ app.get("/", (req, res) => {
 
 app.post("/img", (req, res) => {
   console.log(req.body.url);
+  console.log(req.body.file);
   var tmp_url = req.body.url;
-  base64Img.img(tmp_url, "dest", "1", function(err, path) {
+  var tmp_file = req.body.file;
+  base64Img.img(tmp_url, "dest", tmp_file, function(err, path) {
     if (err) {
       console.log(err);
     } else {

@@ -10,7 +10,6 @@ class ImageUpload extends React.Component {
     this.state = { file: "", imagePreviewUrl: "" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.refff = "";
   }
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -50,10 +49,9 @@ class ImageUpload extends React.Component {
 
     let reader = new FileReader();
     let file = e.target.files[0];
-
     reader.onloadend = () => {
       this.setState({
-        file: file,
+        file: file.name,
         imagePreviewUrl: reader.result
       });
     };
@@ -62,21 +60,15 @@ class ImageUpload extends React.Component {
   }
   _handlePng(e) {
     e.preventDefault();
-    console.log(this.refff);
-    // axios
-    //   .post("/img", {
-    //     url: url
-    //   })
-    //   .then(res => {
-    //     console.log(res);
-    //   });
-    // base64Img.img(url, "dest", "1", function(err, path) {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log(path);
-    //   }
-    // });
+
+    axios
+      .post("/img", {
+        url: this.state.imagePreviewUrl,
+        file: this.state.file
+      })
+      .then(res => {
+        console.log(res);
+      });
   }
 
   render() {
@@ -125,9 +117,6 @@ class ImageUpload extends React.Component {
           filter={this.state.value} // see docs beneath
           colorOne={[100, 150, 250]}
           colorTwo={[250, 150, 130]}
-          ref={tmp => {
-            this.refff = tmp;
-          }}
         />
       </div>
     );
